@@ -9,6 +9,7 @@ myZip a b = (a, b)
 
 
 myZipWith :: (a -> b -> c) -> [a] -> [b] -> [c]
+myZipWith func [] [] = []
 myZipWith func [] (x:xs) = []
 myZipWith func (x:xs) [] = []
 myZipWith func (x:xs) (y:ys) = (func x y ): myZipWith func xs ys
