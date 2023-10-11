@@ -41,5 +41,5 @@ doubleList = map (multiply 2)
 
 getEvens = filter ((==0).(`mod` 2))
 
-books db per = map snd (filter ((==per).fst) db
+books db per = map snd (filter ((==per).fst) db)
 

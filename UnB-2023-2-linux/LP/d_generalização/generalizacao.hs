@@ -1,3 +1,4 @@
+import Data.Text.Lazy.Read (double)
 doubleList xs = map times2 xs
        where times2 x = x*2
 
@@ -162,4 +163,9 @@ returnLoan db p b = filter notPB db
 -- returnLoan3 (db@(pe,bo):dbs) p b
 
 
-mySqr :: 
+l1::[Int]
+l1 = [1,2,3,4,5]
+
+double' :: [Int] -> [Int]
+double' [] = []
+double' (a:as) = (2*a) : double' as
