@@ -1,7 +1,38 @@
 module ModeloDados where
 
-listaMed :: [Medicamento]
-listaMed=["med1", "med2", "med3", "med4", "med5"]
+med1 :: Medicamento
+med1 = "Adera"
+
+med2 :: Medicamento
+med2 = "Alprazolam"
+
+med3 :: Medicamento
+med3 = "Donepezila"
+
+med4 :: Medicamento
+med4 = "Lactulona"
+
+med5 :: Medicamento
+med5 = "Mirtazapina"
+
+med6 :: Medicamento
+med6 = "Pantoprazol"
+
+med7 :: Medicamento
+med7 = "Patz"
+
+med8 :: Medicamento
+med8 = "Quetiapina"
+
+med9 :: Medicamento
+med9 = "Xarelto"
+
+
+listaMed1 :: [Medicamento]
+listaMed1=["med1", "med2", "med3", "med4", "med5"]
+
+estoque1 :: EstoqueMedicamentos
+estoque1 = [(med4, 10), (med6, 5), (med7, 0)]
 
 type Medicamento = String
 type Quantidade = Int

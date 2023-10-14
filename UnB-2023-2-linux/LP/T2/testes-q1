@@ -1,0 +1,11 @@
+estoque1 :: EstoqueMedicamentos
+estoque1 = [(med4, 10), (med6, 5), (med7, 0)]
+
+
+--------------------- EXERCÍCIO 1 ---------------------
+caso1_1 = comprarMedicamento med7 30 estoque1 == [(med4, 10), (med6, 5), (med7, 30)]
+caso1_2 = comprarMedicamento med1 20 estoque1 == [(med1, 20), (med4, 10), (med6, 5), (med7, 0)]
+caso1_3 = comprarMedicamento med6 2 estoque1 == [(med4, 10), (med6, 7), (med7, 0)]
+caso1_4 = comprarMedicamento med9 20 [] == [(med9, 20)]
+
+testeExercicio1 = and [caso1_1, caso1_2, caso1_3, caso1_4]

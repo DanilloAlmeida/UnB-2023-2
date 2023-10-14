@@ -6,16 +6,16 @@ Caso o remédio ainda não exista no estoque, o novo estoque a ser retornado dev
 
 -}
 inverteCabeca :: EstoqueMedicamentos -> EstoqueMedicamentos
-inverteCabeca (e:es) = es:[e]
+inverteCabeca (e:es) = es ++ [e]
 
 adicionaMedicamento :: Medicamento -> Quantidade -> EstoqueMedicamentos -> EstoqueMedicamentos
 adicionaMedicamento m q [] = [(m, q)]
-adicionaMedicamento med qtd ((m,q):es)   |  m == med = (m, (q+qtd)):es
-                                         | otherwise = (m,q) : comprarMedicamento med qtd es
+adicionaMedicamento med qtd ((m,q):es)  |  m == med = (m, (q+qtd)):es
+                                        | otherwise = (m,q) : adicionaMedicamento med qtd es
 
 contaEstoque :: EstoqueMedicamentos -> Int
 contaEstoque [x] = 1
 contaEstoque (x:xs) = contaEstoque xs + 1
 
-comprarMedicamento :: Medicamento -> Quantidade -> EstoqueMedicamentos -> EstoqueMedicamentos
-comprarMedicamento
+-- comprarMedicamento :: Medicamento -> Quantidade -> EstoqueMedicamentos -> EstoqueMedicamentos
+-- comprarMedicamento = undefined

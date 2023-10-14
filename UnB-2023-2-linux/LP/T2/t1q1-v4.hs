@@ -5,17 +5,20 @@ Defina a função "comprarMedicamento", cujo tipo é dado abaixo e que, a partir
 Caso o remédio ainda não exista no estoque, o novo estoque a ser retornado deve ter o remédio e sua quantidade como cabeça.
 
 -}
-inverteCabeca :: EstoqueMedicamentos -> EstoqueMedicamentos
-inverteCabeca (e:es) = es:[e]
+thereIs :: EstoqueMedicamentos -> Medicamento -> Bool
+thereIs [] _ = False 
+thereIs ((med, qdt):ss) m   | med == m = True 
+                            | otherwise = thereIs ss m
 
 adicionaMedicamento :: Medicamento -> Quantidade -> EstoqueMedicamentos -> EstoqueMedicamentos
 adicionaMedicamento m q [] = [(m, q)]
-adicionaMedicamento med qtd ((m,q):es)   |  m == med = (m, (q+qtd)):es
-                                         | otherwise = (m,q) : comprarMedicamento med qtd es
-
-contaEstoque :: EstoqueMedicamentos -> Int
-contaEstoque [x] = 1
-contaEstoque (x:xs) = contaEstoque xs + 1
+adicionaMedicamento med qtd ((m,q):es)  |  m == med = (m, (q+qtd)):es
+                                        | otherwise = (m,q) : adicionaMedicamento med qtd es
 
 comprarMedicamento :: Medicamento -> Quantidade -> EstoqueMedicamentos -> EstoqueMedicamentos
-comprarMedicamento
+comprarMedicamento med qtd [] = (med, qtd):[]
+comprarMedicamento med qtd (e:es)   =   if (thereIs (e:es) med)
+                                        then
+                                            adicionaMedicamento med qtd (e:es)
+                                        else
+                                            (med, qtd):(e:es)
