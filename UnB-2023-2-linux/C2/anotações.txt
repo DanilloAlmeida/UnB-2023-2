@@ -1,0 +1,18 @@
+Download a video
+1
+$ ./destreamer.sh -i "https://www.google.com/url?q=https://web.microsoftstream.com/video/124710d4-640b-4776-b0bd-efee639b2852?channelId%3D2a723643-850c-45d2-a7ad-28fad6123b18&sa=D&source=editors&ust=1697366376041861&usg=AOvVaw2B9K5pYWsHAVWYV5AY256E"
+
+Download a video and re-encode with HEVC
+1
+$ ./destreamer.sh -i "https://www.google.com/url?q=https://web.microsoftstream.com/video/124710d4-640b-4776-b0bd-efee639b2852?channelId%3D2a723643-850c-45d2-a7ad-28fad6123b18&sa=D&source=editors&ust=1697366376041861&usg=AOvVaw2B9K5pYWsHAVWYV5AY256E" --vcodec libx265
+
+
+Download many videos but read URLs from a file -
+1
+$ ./destreamer.sh -f m2-s1.txt
+
+
+
+
+
+
