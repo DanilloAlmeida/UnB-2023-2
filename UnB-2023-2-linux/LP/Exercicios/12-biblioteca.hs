@@ -1,7 +1,7 @@
 type Person = String 
 type Book = String
 type Database = [(Person, Book)]
--- type ExLoan01 = ()
+
 
 exampleBase = [("Alice", "Postman Pat"), 
                ("Anna", "All Alone"),
@@ -26,11 +26,9 @@ borrowed ((x,y):as) b   | y == b = True
 
 numBorrowed :: Database -> Person -> Int
 numBorrowed [] _ = 0
-numBorrowed ((person, book):as) p       |  person == p = 1 + (numBorrowed as p)
-<<<<<<< HEAD
-                                        | otherwise = numBorrowed as p
-=======
-                                        | otherwise = numBorrowed as p
+numBorrowed ((person, book):as) p   |  person == p = 1 + (numBorrowed as p)
+                                    | otherwise = numBorrowed as p
+                                    -- | otherwise = numBorrowed as p
 
 makeLoan :: Database -> Person -> Book -> Database
 -- makeLoan [] = []
@@ -38,6 +36,17 @@ makeLoan db person book = (person, book):db
 
 returnLoan :: Database -> Person -> Book -> Database
 returnLoan [] p b = []
-returnLoan ((person, book):as) p  b     | (p == person) && (b == book) = as
-                                        | otherwise = (person, book) : returnLoan as p b
->>>>>>> 8e2f29ee34c659d2912d982916ac459dc671c7d5
+returnLoan ((person, book):as) p  b | (p == person) && (b == book) = as
+                                    | otherwise = (person, book) : returnLoan as p b
+
+-- exampleBase = [("Alice", "Postman Pat"), 
+--                ("Anna", "All Alone"),
+--                ("Alice","Spot"), 
+--                ("Rory", "Postman Pat")]
+
+-- type Person = String 
+-- type Book = String
+-- type Database = [(Person, Book)]
+
+books2 :: Database -> Person -> [Book]
+books2 db p = [book | (person, book) <- db, person == p]
