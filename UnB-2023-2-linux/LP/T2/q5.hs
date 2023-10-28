@@ -12,9 +12,34 @@ import ModeloDados
  Defina as funções "receituarioValido" e "planoValido" que verifiquem as propriedades acima e cujos tipos são dados abaixo:
 
  -}
+-- myHead :: [Int] -> Int
+-- myHead [x]   
+
+-- validaHorarios :: [Int] -> Bool
+-- validaHorarios [x] = True
+-- validaHorarios (x:xs) | x >= head xs = False
+--                       | otherwise = validaHorarios xs
+
+extMed :: [(Medicamento, [Horario])] -> [Medicamento]
+extMed [] = []
+extMed ((med, hr):xs) = med:extMed xs
+
+extHrs :: (Medicamento, [Horario]) -> [Horario]
+extHrs (_ , []) = []
+extHrs (med, hr:hrs) = hr : extHrs (med, hrs)
+
+validaOrd :: (Ord a) => [a] -> Bool
+validaOrd [x] = True
+validaOrd (x:xs) | x >= head xs = False
+                    | otherwise = validaOrd xs
 
 receituarioValido :: Receituario -> Bool
-receituarioValido = undefined
+receituarioValido [] = True 
+receituarioValido ((med, (hr:hrs)) : xs) =  if  not ( validaOrd (extMed ((med, (hr:hrs)) : xs)) &&
+                                                      validaOrd (extHrs (med, (hr:hrs)))
+                                                    )
+                                              then False
+                                              else receituarioValido xs
 
-planoValido :: PlanoMedicamento -> Bool
-planoValido = undefined
+
+-- planoValido :: PlanoMedicamento -> Bool

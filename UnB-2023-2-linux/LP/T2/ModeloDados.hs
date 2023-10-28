@@ -36,27 +36,6 @@ estoque2 = [(med4, 10), (med6, 5), (med7, 10)]
 estoque3 :: EstoqueMedicamentos
 estoque3 = [(med4, 10), (med6, 50), (med7, 10), (med8, 20)]
 
-receituario1 :: Receituario
-receituario1 = [(med4, [8, 17]), (med6, [6]), (med7, [22])]
-
-receituario2 :: Receituario
-receituario2 = [(med4, [8, 17]), (med6, [6]), (med7, [22]), (med8, [8, 22, 23])]
-
-receituarioInvalido1 :: Receituario
--- Invalido: horário não está ordenado de forma crescente
-receituarioInvalido1 = [(med4, [22, 10])]
-
-receituarioInvalido2 :: Receituario
--- Invalido: medicamentos não estão ordenbados de forma crescente
-receituarioInvalido2 = [(med4, [8, 17]), (med6, [6]), (med7, [22]), (med2, [8, 22, 23])]
-
-receituarioInvalido3 :: Receituario
--- Invalido: medicamentos não estão ordenbados de forma crescente
-receituarioInvalido3 = [(med4, [8, 17]), (med3, [6]), (med7, [22])]
-
-receituarioInvalido4 :: Receituario
--- Invalido: horário não estão ordenbados de forma crescente
-receituarioInvalido4 = [(med4, [8, 17]), (med6, [6]), (med7, [22]), (med8, [8, 23, 22])]
 
 plano1 :: PlanoMedicamento
 plano1 = [(6, [med6]), (8, [med4]), (17, [med4]), (22, [med7])]
@@ -144,8 +123,31 @@ type Medicamento = String
 type Quantidade = Int
 type Horario = Int
 type EstoqueMedicamentos = [(Medicamento, Quantidade)]
-type Prescricao = (Medicamento, [Horario])
-type Receituario = [Prescricao]
 type PlanoMedicamento = [(Horario, [Medicamento])]
 type Plantao = [(Horario, [Cuidado])]
 data Cuidado = Comprar Medicamento Quantidade | Medicar Medicamento
+
+type Receituario = [Prescricao]
+type Prescricao = (Medicamento, [Horario])
+
+receituario1 :: Receituario
+receituario1 = [(med4, [8, 17]), (med6, [6]), (med7, [22])]
+
+receituario2 :: Receituario
+receituario2 = [(med4, [8, 17]), (med6, [6]), (med7, [22]), (med8, [8, 22, 23])]
+
+receituarioInvalido1 :: Receituario
+-- Invalido: horário não está ordenado de forma crescente
+receituarioInvalido1 = [(med4, [22, 10])]
+
+receituarioInvalido2 :: Receituario
+-- Invalido: medicamentos não estão ordenbados de forma crescente
+receituarioInvalido2 = [(med4, [8, 17]), (med6, [6]), (med7, [22]), (med2, [8, 22, 23])]
+
+receituarioInvalido3 :: Receituario
+-- Invalido: medicamentos não estão ordenbados de forma crescente
+receituarioInvalido3 = [(med4, [8, 17]), (med3, [6]), (med7, [22])]
+
+receituarioInvalido4 :: Receituario
+-- Invalido: horário não estão ordenbados de forma crescente
+receituarioInvalido4 = [(med4, [8, 17]), (med6, [6]), (med7, [22]), (med8, [8, 23, 22])]
