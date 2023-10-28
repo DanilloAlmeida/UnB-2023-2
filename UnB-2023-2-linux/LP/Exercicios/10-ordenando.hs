@@ -1,9 +1,10 @@
+import Data.List
 l1::[Int]
 l1 = [3,4,2,5,9,2]
 
-myFst :: [Int] -> Int
-myFst [x] = x
-myFst (x:xs) = x
+-- myFst :: [Int] -> Int
+-- myFst [x] = x
+-- myFst (x:xs) = x
 
 getMenor :: [Int] -> Int
 getMenor [x] = x
