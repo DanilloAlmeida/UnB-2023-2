@@ -13,8 +13,14 @@ import ModeloDados
 
 -}
 
+myQuickSort :: (Ord a) => [a] -> [a]
+myQuickSort [] = []
+myQuickSort (x:xs) = myQuickSort [y | y <- xs, y < x] ++ [x] ++ myQuickSort [y|y <- xs , y >= x]
 
+contaDose :: [Int] -> Int
+contaDose [] = 0
+contaDose (x:xs) = contaDose xs + 1
 
 demandaMedicamentos :: Receituario -> EstoqueMedicamentos
 demandaMedicamentos [] = []
-demandaMedicamentos [(med, [hr:hrs])] = [med, ]
+demandaMedicamentos ((med, (hr:hrs)): xs) = (med, contaDose(hr:hrs)):[] ++ demandaMedicamentos xs
