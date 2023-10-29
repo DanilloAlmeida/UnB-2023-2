@@ -34,12 +34,10 @@ validaOrd (x:xs) | x >= head xs = False
                     | otherwise = validaOrd xs
 
 receituarioValido :: Receituario -> Bool
-receituarioValido [] = True 
-receituarioValido ((med, (hr:hrs)) : xs) =  if  not ( validaOrd (extMed ((med, (hr:hrs)) : xs)) &&
-                                                      validaOrd (extHrs (med, (hr:hrs)))
-                                                    )
-                                              then False
-                                              else receituarioValido xs
+receituarioValido [] = True
+receituarioValido ((med, hr:hrs) : xs) =  ( validaOrd (extMed ((med, hr:hrs) : xs)) &&
+                                                      validaOrd (extHrs (med, hr:hrs))
+                                                    ) && receituarioValido xs
 
-
+---------------------------------------------------------------------------------
 -- planoValido :: PlanoMedicamento -> Bool
