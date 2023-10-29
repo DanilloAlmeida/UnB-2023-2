@@ -1,0 +1,10 @@
+{
+x = 1;
+soma = 0;
+for (c = 10; c ; c = c - 1;) 
+   soma = soma + c;
+x = soma;
+if ( x ) 
+  then y = 20;
+  else z = 240;
+}

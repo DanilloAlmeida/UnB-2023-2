@@ -1,0 +1,10 @@
+{
+x = 1;
+soma = 0;
+c = 10;
+while (c) {
+  soma = soma + c;
+  c = c - 1;
+ }
+
+}

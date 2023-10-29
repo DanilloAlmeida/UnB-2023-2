@@ -43,3 +43,9 @@ type Receituario = [Prescricao]
 type PlanoMedicamento = [(Horario, [Medicamento])]
 type Plantao = [(Horario, [Cuidado])]
 data Cuidado = Comprar Medicamento Quantidade | Medicar Medicamento
+
+receituario1 :: Receituario
+receituario1 = [(med4, [8, 17]), (med6, [6]), (med7, [22])]
+
+receituario2 :: Receituario
+receituario2 = [(med4, [8, 17]), (med6, [6]), (med7, [22]), (med8, [8, 22, 23])]
