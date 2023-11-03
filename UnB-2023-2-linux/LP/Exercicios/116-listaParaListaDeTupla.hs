@@ -21,9 +21,10 @@ listaParaListaDeTupla (str, num) (x:xs) aux = if (num == x)
 
 insereString :: (String, Int) -> [Int] -> [(Int, [String])] -> [(Int, [String])]
 insereString (_,_) [] aux = aux
-insereString (str, num) (x:xs) aux = if (num == x)
-                                            then insereString (str, num) xs ((num , [str]):aux)
-                                            else insereString (str, num) xs ((x, [""]):aux)
+-- insereString (str, num) (x:xs) aux = if (num == x)
+--                                             then insereString (str, num) xs ((num , [str]):aux)
+--                                             else insereString (str, num) xs ((x, [""]):aux)
+insereString (str, num) (x:xs) aux = insereString (str, num) xs ((x, [""]):aux)
 
 addString :: (String, Int) -> [(Int, [String])] -> [(Int, [String])] -> [(Int, [String])]
 addString (_,_) [] aux = aux

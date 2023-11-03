@@ -134,10 +134,10 @@ planoInvalido2 :: PlanoMedicamento
 planoInvalido2 = [(6, [med6]), (8, [med8, med4]), (17, [med4]), (22, [med7, med8]), (23, [med8])] :: [(Int, [String])]
 
 receituario1 :: Receituario
-receituario1 = [(med4, [8])]
+receituario1 = [(med4, [8, 17]), (med6, [6]), (med7, [22])]
 
 receituario2 :: Receituario
-receituario2 = [(med4, [8, 17]), (med6, [6]), (med7, [22])]
+receituario2 = [(med4, [8, 17]), (med6, [6]), (med7, [22]), (med8, [8, 22, 23])]
 
 receituario4 :: Receituario
 receituario4 = [(med4, [8, 9, 10, 17])]
