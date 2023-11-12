@@ -40,26 +40,23 @@ montaListaHrDeListaDePar ((med, hr):xs) aux =    if isElem hr aux
                                                             else montaListaHrDeListaDePar xs (hr:aux)
 
 
-myQuickSort :: (Ord a) => [a] -> [a]
-myQuickSort [] = []
-myQuickSort (x:xs) = myQuickSort [y | y <- xs, y < x] ++ [x] ++ myQuickSort [y|y <- xs , y >= x]
 
-montaPlanoVazio :: Receituario -> PlanoMedicamento
-montaPlanoVazio [(med, hrs)] = 
+-- montaPlanoVazio :: Receituario -> PlanoMedicamento
+-- montaPlanoVazio [(med, hrs)]
 
 -- montaPlano :: Receituario -> PlanoMedicamento -> PlanoMedicamento
 -- montaPlano [] planAux = planAux
 -- -- montaPlano [(med, hr:hrs)] =  if (isElem hr myQuickSort (montaListaHrDeListaDePar (montaParMedHrRec (med, hr:hrs)) []))
 -- --                               then 
 
-addMedNoPlan :: Horario -> Medicamento -> PlanoMedicamento
-addMedNoPlan hr med = [(hr, [med])]
+-- addMedNoPlan :: Horario -> Medicamento -> PlanoMedicamento
+-- addMedNoPlan hr med = [(hr, [med])]
 
 
 
 -- geraPlanoReceituario :: Receituario -> PlanoMedicamento
 -- geraPlanoReceituario [(_, [])] = []
 -- geraPlanoReceituario [(med, (hr:hrs))] = (hr, [med]):geraPlanoReceituario [(med, hrs)]
-
-
-
+myQuickSort :: (Ord a) => [a] -> [a]
+myQuickSort [] = []
+myQuickSort (x:xs) = myQuickSort [y | y <- xs, y < x] ++ [x] ++ myQuickSort [y|y <- xs , y >= x]

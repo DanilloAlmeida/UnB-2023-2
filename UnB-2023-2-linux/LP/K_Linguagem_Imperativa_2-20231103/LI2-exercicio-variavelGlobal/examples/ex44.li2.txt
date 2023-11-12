@@ -1,0 +1,12 @@
+
+teste = 5;
+
+f (arg) {
+  return arg+teste;
+}
+
+main () {
+  x = 10;
+  y  = f(2);
+ return y+teste;
+}

@@ -12,5 +12,7 @@ main = do
   putStrLn ""
 
 calc s = 
-  let Ok e = pExp (myLexer s) 
+  let Ok e = pExp (myLexer s) -- versão original
+  -- let Left e = pExp (myLexer s) 
+  -- let e = pExp (myLexer s) 
   in show (eval e)
